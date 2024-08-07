@@ -2,6 +2,18 @@
 
 Este repositório contém um projeto com vários arquivos Python que cobrem os fundamentos da programação em Python. O objetivo deste projeto é fornecer exemplos práticos e didáticos para iniciantes que desejam aprender Python.
 
+# Definição de Classes
+Como boa prática, cada classe deve fazer parte de um único arquivo.py para ajudar na estruturação do sistema orientado a objetos em Python. Outra boa prática consiste no nome da classe semelhante ao do arquivo. Por exemplo, definir no ambiente de desenvolvimento Python a classe Conta. O nome final do arquivo deve ser Conta.py.
+
+Uma classe é definida utilizando a instrução class e : para indicar o início do bloco de declaração da classe. A palavra reservada pass indica que a classe será definida posteriormente, servindo apenas para permitir que o interpretador execute a classe até o final sem erros.
+
+```
+class Conta:
+    pass
+```
+
+
+
 ## Módulos
 ### Criando seu próprio módulo
 Os desenvolvedores podem criar seus próprios módulos de forma a reutilizar as funções que já escreveram e organizar melhor seu trabalho. Para isso, basta criar um arquivo .py e escrever nele suas funções. É importante observar que o arquivo do módulo precisa estar na mesma pasta do arquivo para onde ele será importado.
