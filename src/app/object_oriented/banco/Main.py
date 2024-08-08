@@ -1,5 +1,7 @@
 from Conta import Conta
 from Cliente import Cliente
+from src.app.object_oriented.banco.ContaEspecial import ContaEspecial
+from src.app.object_oriented.banco.ContaRemuneradaPoupanca import ContaRemuneradaPoupanca
 
 print("Bem-vindo ao sistema de contas bancárias.")
 
@@ -17,6 +19,14 @@ conta_1.sacar(200)
 print("## Gerando extrato da conta 1...")
 conta_1.gerar_extrato()
 
+print("## Criando conta especial...")
+conta_especial = ContaEspecial([cliente_titular_1], 3, 1000, 500)
+print("## Conta especial criada com sucesso...")
+print("## Realizando primeiro saque com conta especial...")
+conta_especial.sacar(1501)
+print("## Gerando extrado da conta especial...")
+conta_especial.gerar_extrato()
+
 print("\n## Criando conta 2 com apenas conta titular...")
 cliente_titular_2 = Cliente("Joana", 789, "Rua 2")
 conta_2 = Conta(cliente_titular_2, 2, 3000)
@@ -28,3 +38,10 @@ print("## Gerando extrato da conta 2 após transferência...")
 conta_2.gerar_extrato()
 print("## Gerando extrato da conta 1 após transferência...")
 conta_1.gerar_extrato()
+
+print("## Criando conta poupança...")
+conta_remunerada = ContaRemuneradaPoupanca(0.1, cliente_titular_2, 5, 1000, 5)
+print("## Remunerando conta...")
+conta_remunerada.calcular_remuneracao_conta()
+print("## Gerando extrado da conta poupança...")
+conta_remunerada.gerar_extrato()

@@ -1,6 +1,7 @@
 import datetime
 
-from src.app.object_oriented.Extrato import Extrato
+from Extrato import Extrato
+from src.app.object_oriented.banco.exceptions.ContaOperacaoInvalida import ContaOperacaoInvalida
 
 
 class Conta:
@@ -14,43 +15,57 @@ class Conta:
     # Obs: Importante ressaltar que, em Python, não é obrigatório ter um método construtor na classe,
     # apenas se for necessária alguma ação na construção do objeto, como inicialização e/ou atribuição de valores.
 
+    # Getters
+    @property
+    def saldo(self):
+        return self.__saldo
+
+    @property
+    def extrato(self):
+        return self.__extrato
+
+    # Setters
+    @saldo.setter
+    def saldo(self, valor):
+        self.__saldo = valor
+
     @staticmethod
-    def __valida_valor(valor):
+    def valida_valor(valor):
         """
         Função estática privada que valida o valor de depósito.
         :param valor: Valor a ser validado
         """
         if valor is None:
-            raise ValueError("Valor de depósito não pode ser nulo.")
+            raise ContaOperacaoInvalida("Valor de depósito não pode ser nulo.")
         elif valor <= 0:
-            raise ValueError("Valor de depósito deve ser maior que zero.")
+            raise ContaOperacaoInvalida("Valor de depósito deve ser maior que zero.")
         elif not isinstance(valor, (int, float)):
-            raise ValueError("Valor de depósito deve ser um número inteiro ou real.")
+            raise ContaOperacaoInvalida("Valor de depósito deve ser um número inteiro ou real.")
 
     def depositar(self, valor):
-        self.__valida_valor(valor)
+        self.valida_valor(valor)
         self.__saldo += valor
         print("Depósito realizado com sucesso!")
         self.__extrato.adicionar_transacao("Depósito", valor)
 
     def sacar(self, valor):
-        self.__valida_valor(valor)
+        self.valida_valor(valor)
         if self.__saldo >= valor:
             self.__saldo -= valor
             print("Saque realizado com sucesso!")
             self.__extrato.adicionar_transacao("Saque", valor)
         else:
-            raise ValueError("Saldo insuficiente para realizar o saque.")
+            raise ContaOperacaoInvalida("Saldo insuficiente para realizar o saque.")
 
     def transferir(self, valor, conta_destino):
         try:
-            self.__valida_valor(valor)
+            self.valida_valor(valor)
             self.sacar(valor)
             conta_destino.depositar(valor)
             print("Transferencia realizada com sucesso!")
             self.__extrato.adicionar_transacao("Transferência", valor)
-        except ValueError as e:
-            raise ValueError(f"Não foi possível realizar a transferência: {e}")
+        except ContaOperacaoInvalida as e:
+            raise ContaOperacaoInvalida(f"Não foi possível realizar a transferência: {e}")
 
     def gerar_extrato(self):
         print("--------------------------------------")
