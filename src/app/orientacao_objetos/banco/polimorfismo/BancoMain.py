@@ -1,6 +1,6 @@
-from src.app.object_oriented.banco.polimorfismo.Banco import Banco
-from src.app.object_oriented.banco.polimorfismo.ContaComum import ContaComum
-from src.app.object_oriented.banco.polimorfismo.ContaRemunerada import ContaRemunerada
+from src.app.orientacao_objetos.banco.polimorfismo.Banco import Banco
+from src.app.orientacao_objetos.banco.polimorfismo.ContaComum import ContaComum
+from src.app.orientacao_objetos.banco.polimorfismo.ContaRemunerada import ContaRemunerada
 
 banco = Banco(1, 'Banco do Brasil')
 conta_comum = ContaComum(2, 0.01, 0.1, 2000, 0.05)

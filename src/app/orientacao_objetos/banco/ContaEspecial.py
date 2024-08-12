@@ -1,5 +1,5 @@
 from Conta import Conta
-from src.app.object_oriented.banco.exceptions.ContaOperacaoInvalida import ContaOperacaoInvalida
+from src.app.orientacao_objetos.banco.exceptions.ContaOperacaoInvalida import ContaOperacaoInvalida
 
 
 class ContaEspecial(Conta):

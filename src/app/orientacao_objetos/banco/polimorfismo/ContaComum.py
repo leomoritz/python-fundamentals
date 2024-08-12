@@ -1,4 +1,4 @@
-from src.app.object_oriented.banco.polimorfismo.ContaCliente import ContaCliente
+from src.app.orientacao_objetos.banco.polimorfismo.ContaCliente import ContaCliente
 
 
 class ContaComum(ContaCliente):

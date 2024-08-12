@@ -1,6 +1,6 @@
 from typing import List
 
-from src.app.object_oriented.banco.polimorfismo import ContaCliente
+from src.app.orientacao_objetos.banco.polimorfismo import ContaCliente
 
 
 class Banco:

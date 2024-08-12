@@ -1,5 +1,5 @@
-from src.app.object_oriented.banco.Conta import Conta
-from src.app.object_oriented.banco.ContaPoupanca import ContaPoupanca
+from src.app.orientacao_objetos.banco.Conta import Conta
+from src.app.orientacao_objetos.banco.ContaPoupanca import ContaPoupanca
 
 
 class ContaRemuneradaPoupanca(Conta, ContaPoupanca):

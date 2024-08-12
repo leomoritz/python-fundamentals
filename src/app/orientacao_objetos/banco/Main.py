@@ -1,7 +1,7 @@
 from Conta import Conta
 from Cliente import Cliente
-from src.app.object_oriented.banco.ContaEspecial import ContaEspecial
-from src.app.object_oriented.banco.ContaRemuneradaPoupanca import ContaRemuneradaPoupanca
+from src.app.orientacao_objetos.banco.ContaEspecial import ContaEspecial
+from src.app.orientacao_objetos.banco.ContaRemuneradaPoupanca import ContaRemuneradaPoupanca
 
 print("Bem-vindo ao sistema de contas bancárias.")
 
